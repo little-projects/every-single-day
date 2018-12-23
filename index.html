@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>EOC</title>
+
+    <!-- Includes -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <!-- Remove this to nav.html / other later -->
+    <div id="nav" class="nav-background">
+        <h1>Dashboard</h1>
+        <ul>
+            <li>
+                <a href="projects.html" data-title="Projects">
+                    Projects
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/chart-with-upwards-trend_1f4c8.png" title="projects">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-title="Health">
+                    Health
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/black-heart-suit_2665.png" title="health">
+                </a>
+                <!-- <ul>
+                        <li>Health 1</li>
+                        <li>Health 2</li>
+                    </ul> -->
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-title="Wealth">
+                    Wealth
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/credit-card_1f4b3.png" title="wealth">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-title="Diary">
+                    Diary
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/memo_1f4dd.png" title="diary">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-title="Timeline">
+                    Timeline
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/stopwatch_23f1.png" title="timeline">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-title="Search">
+                    Search
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/left-pointing-magnifying-glass_1f50d.png" title="search">
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" data-title="Settings">
+                    Settings
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/gear_2699.png" title="settings">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="container">
+            <header>
+                <p>Mood Journals</p>
+            </header>
+
+            <textarea id="input-diary" class="textarea-normal" autofocus placeholder="So, what happened?"></textarea>
+
+            <div class="container-mood-selector">
+                <ul id="moods">
+                    <li id="mood-great"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/grinning-face-with-smiling-eyes_1f601.png" title="great"></li>
+                    <li id="mood-happy"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/slightly-smiling-face_1f642.png" title="happy"></li>
+                    <li id="mood-neutral"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/neutral-face_1f610.png" title="neutral"></li>
+                    <li id="mood-unsure"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/face-without-mouth_1f636.png" title="unsure"></li>
+                    <li id="mood-tired"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/sleeping-face_1f634.png" title="tired"></li>
+                    <li id="mood-sad"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/worried-face_1f61f.png" title="sad"></li>
+                    <li id="mood-upset"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/loudly-crying-face_1f62d.png" title="upset"></li>
+                </ul>
+            </div>
+
+            <div class="container-meter">
+
+                <div id="mood-meter">
+                    <div id="meter-great" class="mood-meter-perc"></div>
+                    <div id="meter-happy" class="mood-meter-perc"></div>
+                    <div id="meter-neutral" class="mood-meter-perc"></div>
+                    <div id="meter-unsure" class="mood-meter-perc"></div>
+                    <div id="meter-tired" class="mood-meter-perc"></div>
+                    <div id="meter-sad" class="mood-meter-perc"></div>
+                    <div id="meter-upset" class="mood-meter-perc"></div>
+                </div>
+
+            </div>
+
+            <ul id="mood-sorter">
+                <li id="sort-all" class="sort-selected">All</li>
+                <li id="sort-great">Great</li>
+                <li id="sort-happy">Happy</li>
+                <li id="sort-neutral">Neutral</li>
+                <li id="sort-unsure">Unsure</li>
+                <li id="sort-tired">Tired</li>
+                <li id="sort-sad">Sad</li>
+                <li id="sort-upset">Upset</li>
+            </ul>
+
+            <p id="empty-entries" class="text-center">You haven't logged any entry yet.<br>Think about what happened today!</p>
+
+            <ul id="entries">
+                <li class="entry sad-entry">
+                    <p class="entry-text">Something really interesting happened today. I decided to actually make the tracker so I can see how little I do the rest of the time! Want to see how often you've been complaining of belly ache... let me tell you!</p>
+
+                    <div class="overflow-hidden">
+                        <span class="timestamp">23 Dec 18, 9:00 PM</span>
+                        <div class="actions">
+                            <!-- favorite -->
+                            <span class="delete">Delete</span>
+                            <span class="edit">Edit</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+        </div>
+    </main>
+</body>

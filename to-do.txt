@@ -1,0 +1,27 @@
+
+- QUESTIONS
+
+what is the non-php way to do this
+<?php include_once __DIR__.'/includes/file.inc.ext'; ?>
+
+is there a clever way to have a string = "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/"
+and add that to each of the image tags so the URL is shorter and more readable?
+reluctant to go straight to URL shorteners as you'll never get the image back if the URL changes
+and, don't think I really want to make a copy of every image for the project!
+
+
+
+- FEATURES
+
+finish designing the UI for each page
+
+
+
+- TECH
+
+...
+
+
+- OTHER
+
+https://react-bootstrap.github.io/layout/grid/
