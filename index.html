@@ -7,126 +7,199 @@
 
     <!-- Includes -->
     <link rel="stylesheet" href="css/style.css" />
-    <script src="index.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#navbar').load("nav-bar.html");
+
+        });
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            // hide tab-content until clicked
+            content = document.getElementsByClassName("tab-content");
+            for (i = 0; i < content.length; i++) {
+                content[i].style.display = "none";
+            }
+
+            links = document.getElementsByClassName("tab-links");
+            for (i = 0; i < links.length; i++) {
+                links[i].className = links[i].className.replace(" active", "");
+            }
+
+            // show the current tab and add 'active' class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </head>
 
 <body>
-    <!-- Remove this to nav.html / other later -->
-    <div id="nav" class="nav-background">
+    <nav id="nav" class="nav-background">
         <h1>Dashboard</h1>
         <ul>
             <li>
-                <a href="projects.html" data-title="Projects">
+                <a href="javascript:void(0);" data-title="Projects">
                     Projects
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/chart-with-upwards-trend_1f4c8.png" title="projects">
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/chart-with-upwards-trend_1f4c8.png"
+                        title="projects">
                 </a>
             </li>
             <li>
-                <a href="javascript:void(0);" data-title="Health">
+                <a href="health.html" data-title="Health">
                     Health
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/black-heart-suit_2665.png" title="health">
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/black-heart-suit_2665.png"
+                        title="health">
                 </a>
-                <!-- <ul>
-                        <li>Health 1</li>
-                        <li>Health 2</li>
-                    </ul> -->
+                <ul class="health-dropdowns">
+                    <li>Health 1</li>
+                    <li>Health 2</li>
+                </ul>
             </li>
             <li>
                 <a href="javascript:void(0);" data-title="Wealth">
                     Wealth
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/credit-card_1f4b3.png" title="wealth">
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/credit-card_1f4b3.png"
+                        title="wealth">
                 </a>
             </li>
             <li>
-                <a href="javascript:void(0);" data-title="Diary">
+                <a href="index.html" data-title="Diary">
                     Diary
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/memo_1f4dd.png" title="diary">
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/memo_1f4dd.png"
+                        title="diary">
                 </a>
             </li>
             <li>
                 <a href="javascript:void(0);" data-title="Timeline">
                     Timeline
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/stopwatch_23f1.png" title="timeline">
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/stopwatch_23f1.png"
+                        title="timeline">
                 </a>
             </li>
             <li>
                 <a href="javascript:void(0);" data-title="Search">
                     Search
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/left-pointing-magnifying-glass_1f50d.png" title="search">
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/left-pointing-magnifying-glass_1f50d.png"
+                        title="search">
                 </a>
             </li>
             <li>
                 <a href="javascript:void(0);" data-title="Settings">
                     Settings
-                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/gear_2699.png" title="settings">
+                    <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/gear_2699.png"
+                        title="settings">
                 </a>
             </li>
         </ul>
-    </div>
-
+    </nav>
     <main>
         <div class="container">
             <header>
                 <p>Mood Journals</p>
             </header>
 
-            <textarea id="input-diary" class="textarea-normal" autofocus placeholder="So, what happened?"></textarea>
-
-            <div class="container-mood-selector">
-                <ul id="moods">
-                    <li id="mood-great"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/grinning-face-with-smiling-eyes_1f601.png" title="great"></li>
-                    <li id="mood-happy"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/slightly-smiling-face_1f642.png" title="happy"></li>
-                    <li id="mood-neutral"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/neutral-face_1f610.png" title="neutral"></li>
-                    <li id="mood-unsure"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/face-without-mouth_1f636.png" title="unsure"></li>
-                    <li id="mood-tired"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/sleeping-face_1f634.png" title="tired"></li>
-                    <li id="mood-sad"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/worried-face_1f61f.png" title="sad"></li>
-                    <li id="mood-upset"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/loudly-crying-face_1f62d.png" title="upset"></li>
-                </ul>
-            </div>
-
-            <div class="container-meter">
-
-                <div id="mood-meter">
-                    <div id="meter-great" class="mood-meter-perc"></div>
-                    <div id="meter-happy" class="mood-meter-perc"></div>
-                    <div id="meter-neutral" class="mood-meter-perc"></div>
-                    <div id="meter-unsure" class="mood-meter-perc"></div>
-                    <div id="meter-tired" class="mood-meter-perc"></div>
-                    <div id="meter-sad" class="mood-meter-perc"></div>
-                    <div id="meter-upset" class="mood-meter-perc"></div>
+            <div class="tab swiper-container">
+                <div id="tabs-headers" class="tabs">
+                    <button class="tab-links" onclick="openTab(event, 'mood')">Todays Mood</button>
+                    <button class="tab-links" onclick="openTab(event, 'activities')">Todays Activities</button>
+                    <button class="tab-links" onclick="openTab(event, 'goals')">Todays Goals</button>
                 </div>
+                <div id="mood" class="col tab-content">
 
-            </div>
+                    <textarea id="input-diary" class="textarea-normal" autofocus placeholder="So, are you happy?"></textarea>
 
-            <ul id="mood-sorter">
-                <li id="sort-all" class="sort-selected">All</li>
-                <li id="sort-great">Great</li>
-                <li id="sort-happy">Happy</li>
-                <li id="sort-neutral">Neutral</li>
-                <li id="sort-unsure">Unsure</li>
-                <li id="sort-tired">Tired</li>
-                <li id="sort-sad">Sad</li>
-                <li id="sort-upset">Upset</li>
-            </ul>
+                    <div class="container-mood-selector">
+                        <ul id="moods">
+                            <li id="mood-great"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/grinning-face-with-smiling-eyes_1f601.png" title="great"></li>
+                            <li id="mood-happy"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/slightly-smiling-face_1f642.png" title="happy"></li>
+                            <li id="mood-neutral"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/neutral-face_1f610.png" title="neutral"></li>
+                            <li id="mood-unsure"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/face-without-mouth_1f636.png" title="unsure"></li>
+                            <li id="mood-tired"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/sleeping-face_1f634.png" title="tired"></li>
+                            <li id="mood-sad"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/worried-face_1f61f.png" title="sad"></li>
+                            <li id="mood-upset"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/loudly-crying-face_1f62d.png" title="upset"></li>
+                        </ul>
+                    </div>
 
-            <p id="empty-entries" class="text-center">You haven't logged any entry yet.<br>Think about what happened today!</p>
-
-            <ul id="entries">
-                <li class="entry sad-entry">
-                    <p class="entry-text">Something really interesting happened today. I decided to actually make the tracker so I can see how little I do the rest of the time! Want to see how often you've been complaining of belly ache... let me tell you!</p>
-
-                    <div class="overflow-hidden">
-                        <span class="timestamp">23 Dec 18, 9:00 PM</span>
-                        <div class="actions">
-                            <!-- favorite -->
-                            <span class="delete">Delete</span>
-                            <span class="edit">Edit</span>
+                    <div class="container-meter">
+                        <div id="mood-meter">
+                            <div id="meter-great" class="mood-meter-perc"></div>
+                            <div id="meter-happy" class="mood-meter-perc"></div>
+                            <div id="meter-neutral" class="mood-meter-perc"></div>
+                            <div id="meter-unsure" class="mood-meter-perc"></div>
+                            <div id="meter-tired" class="mood-meter-perc"></div>
+                            <div id="meter-sad" class="mood-meter-perc"></div>
+                            <div id="meter-upset" class="mood-meter-perc"></div>
                         </div>
                     </div>
-                </li>
-            </ul>
 
+                    <ul id="mood-sorter">
+                        <li id="sort-all" class="sort-selected">All</li>
+                        <li id="sort-great">Great</li>
+                        <li id="sort-happy">Happy</li>
+                        <li id="sort-neutral">Neutral</li>
+                        <li id="sort-unsure">Unsure</li>
+                        <li id="sort-tired">Tired</li>
+                        <li id="sort-sad">Sad</li>
+                        <li id="sort-upset">Upset</li>
+                    </ul>
 
+                    <p id="empty-entries" class="text-center">You haven't logged any entry yet.<br>Think about what happened today!</p>
+
+                    <ul id="entries">
+                        <li class="entry sad-entry">
+                            <p class="entry-text">Something really interesting happened today. I decided to actually make the tracker so I can see how little I do the rest of the time! Want to see how often you've been complaining of belly ache... let me tell you!</p>
+
+                            <div class="overflow-hidden">
+                                <span class="timestamp">23 Dec 18, 9:00 PM</span>
+                                <div class="actions">
+                                    <!-- favorite -->
+                                    <span class="delete">Delete</span>
+                                    <span class="edit">Edit</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div id="activities" class="col tab-content">
+
+                    <p>Today I...</p>
+                    <div class="container-activity-selector">
+                        <ul id="activities">
+                            <!-- row 1: productive tasks -->
+                            <li id="activity-working"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/briefcase_1f4bc.png" title="work"></li>
+                            <li id="activity-uni"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/graduation-cap_1f393.png" title="uni"></li>
+                            <li id="activity-studying"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/blue-book_1f4d8.png" title="studying"></li>
+                            <li id="activity-crafts"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/spool-of-thread_1f9f5.png" title="crafts"></li>
+
+                            <!-- row 2: fitness -->
+                            <li id="activity-running"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/woman-running_1f3c3-200d-2640-fe0f.png" title="running"></li>
+                            <li id="activity-gymming"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/woman-weight-lifting_1f3cb-fe0f-200d-2640-fe0f.png" title="gymming"></li>
+                            <li id="activity-swimming"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/bikini_1f459.png" title="swimming"></li>
+                            <li id="activity-hiking"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/hiking-boot_1f97e.png" title="hiking"></li>
+
+                            <!-- row 3: social / private -->
+                            <li id="activity-socialising"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/family-man-boy-boy_1f468-200d-1f466-200d-1f466.png" title="socialising"></li>
+                            <li id="activity-phone-calls"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/telephone-receiver_1f4de.png" title="calls"></li>
+                            <li id="activity-date"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/two-hearts_1f495.png" title="date"></li>
+                            <li id="activity-netflix"><img src="https://www.pngarts.com/files/1/Netflix-Logo-PNG-Transparent-Image.png" title="netflix"></li>
+
+                            <!-- row 4: other -->
+                            <li id="activity-shopping"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/shopping-trolley_1f6d2.png" title="shopping"></li>
+                            <li id="activity-chores"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/sponge_1f9fd.png" title="chores"></li>
+                            <li id="activity-sleeping"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/sleeping-accommodation_1f6cc.png" title="sleeping"></li>
+                            <li id="activity-sick"><img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/153/face-with-thermometer_1f912.png" title="sick"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="goals" class="col tab-content">
+                    some random tab content to do with my projects
+                </div>
+            </div>
+            <!-- end of swiper container-->
         </div>
     </main>
 </body>
